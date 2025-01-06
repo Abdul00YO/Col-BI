@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Search Teammates</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="main">
+        <div id="nav">
+            <div id="logo"></div>
+            <div id="text">COL-BI</div>
+            <div id="home">
+                <ul>
+                    <li> <a href="{{url_for('index')}}">Home</a> </li>
+                    <li> <a href="{{url_for('find')}}">Find</a></li>
+                    <li> <a href="{{url_for('search')}}">Search</a></li>
+                    <li> <a href="{{url_for('about')}}">About</a></li>
+                    <button id="logout"> <a href="{{url_for('login')}}">Logout</a></button>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Form -->
+    <div class="search-section">
+        <h2>Search for a Teammate</h2>
+        <form method="POST" action="/search" class="search-form">
+            <label for="teammate_spec">Enter Teammate Specifications:</label><br>
+            <input
+                type="text" 
+                id="teammate_spec" 
+                name="teammate_spec" 
+                placeholder="e.g., backend developer" 
+                required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <!-- Results Section -->
+    <div class="results-section">
+        {% if results is not none %}
+            {% if results %}
+                <h3>Matched Teammates</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Email</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Field</th>
+                            <th>Current Project</th>
+                            <th>Teammate Specs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in results %}
+                        <tr>
+                            <td>{{ row[0] }}</td>
+                            <td><a href="mailto:{{ row[1] }}">{{ row[1] }}</a></td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}</td>
+                            <td>{{ row[4] }}</td>
+                            <td>{{ row[5] }}</td>
+                            <td>{{ row[6] }}</td>
+                            <td>{{ row[7] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No teammates found matching your specifications.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>COL-BI</h3>
+                <p>Connecting people to build better projects, together. COL-BI makes collaboration easy and efficient for everyone.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('find') }}">Find</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><button id="logout"><a href="{{ url_for('login') }}">Logout</a></button></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="#"><img src="/static/images/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="/static/images/twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="/static/images/instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 COL-BI. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

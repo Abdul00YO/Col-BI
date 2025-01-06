@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Teammates</title>
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="main">
+        <div id="nav">
+            <div id="logo"></div>
+            <div id="text">COL-BI</div>
+            <div id="home">
+                <ul>
+                    <li> <a href="{{url_for('index')}}">Home</a> </li>
+                    <li> <a href="{{url_for('find')}}">Find</a></li>
+                    <li> <a href="{{url_for('search')}}">Search</a></li>
+                    <li> <a href="{{url_for('about')}}">About</a></li>
+                    <button id="logout"> <a href="{{url_for('login')}}">Logout</a></button>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Teammates Section -->
+    <h2>Matched Teammates</h2>
+    {% if results %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Field</th>
+                    <th>Current Project</th>
+                    <th>Teammate Specs</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <!-- Create clickable mail link -->
+                    <td><a href="mailto:{{ row[1] }}?subject=Teammate%20Collaboration&body=Hi%20{{ row[2] }},%0A%0AI%20found%20your%20profile%20on%20COL-BI%20and%20would%20like%20to%20connect.">
+                        {{ row[1] }}
+                    </a>
+                    </td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                    <td>{{ row[5] }}</td>
+                    <td>{{ row[6] }}</td>
+                    <td>{{ row[7] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p style="text-align: center;">No matched teammates found for the current project.</p>
+    {% endif %}
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>COL-BI</h3>
+                <p>Connecting people to build better projects, together. COL-BI makes collaboration easy and efficient for everyone.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('find') }}">Find</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><button id="logout"><a href="{{url_for('login')}}">Logout</a></button></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="#"><img src="/static/images/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="/static/images/twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="/static/images/instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 COL-BI. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

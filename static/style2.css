@@ -1,0 +1,134 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background:#fff; /* Beautiful gradient background */
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Container Styling for Forms */
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin: 20px;
+}
+
+h2 {
+    position: absolute;
+    top: 5%;
+    left: 40%;
+    font-size: 50px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Label Styling */
+label {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 0px;
+    display: block;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Input Field Styling */
+input {
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #3809ba;
+    box-shadow: 0 0 8px rgba(56, 9, 186, 0.5);
+}
+
+/* Submit Button Styling */
+button[type="submit"] {
+    padding: 15px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #3809ba;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+    background-color: #27079a;
+}
+
+button[type="submit"]:active {
+    background-color: #1e0677;
+}
+
+/* Error Message Styling */
+span {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Footer Text */
+p {
+    position: absolute;
+    bottom: 10%;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+a {
+    color: #3809ba;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    input {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    button[type="submit"] {
+        padding: 12px;
+        font-size: 16px;
+    }
+}

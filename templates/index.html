@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <title>Home</title>
+</head>
+<body>
+    <div id="main">
+        <div id="nav">
+            <div id="logo"></div>
+            <div id="text">COL-BI</div>
+            <div id="home">
+                <ul>
+                    <li> <a href="{{url_for('index')}}">Home</a> </li>
+                    <li> <a href="{{url_for('find')}}">Find</a></li>
+                    <li> <a href="{{url_for('search')}}">Search</a></li>
+                    <li> <a href="{{url_for('about')}}">About</a></li>
+                    <button id="logout"> <a href="{{url_for('login')}}">Logout</a></button>
+                </ul>
+            </div>
+        </div>
+        <div id="text1">
+            <h1>Tired of working <br> alone?
+                COL-BI <br> got you.
+            </h1>
+        </div>
+        <div id="pic1">
+            <img src="/static/images/pic1.png" alt="">
+        </div>
+        <div id="text2">
+            <h1>
+                What do we do?
+            </h1>
+        </div>
+        <div id="text3">
+            <p>
+                We can find you a person that you can work with. <br>
+                In this way you can work easily and more efficiently.
+            </p>
+        </div>
+        <div id="pic2">
+            <img src="/static/images/pic2.png" alt="">
+        </div>
+        <div id="text4">
+            <p>
+                Interesting right? you’ll be  wondering that we will charge
+                 you for that, don’t worry COL-BI is absolutely free.
+            </p>
+        </div>
+        <div id="text5">
+            <p>
+                Ready to find your teammate?
+            </p>
+        </div>
+        <div id="pic3">
+            <img src="/static/images/pic3.png"alt="">
+        </div>
+        <div id="button">
+            <a href="{{ url_for('find') }}">
+                <input type="button" value="Let's Go!">
+            </a>
+            
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>COL-BI</h3>
+                <p>Connecting people to build better projects, together. COL-BI makes collaboration easy and efficient for everyone.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('find') }}">Find</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="#"><img src="/static/images/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="/static/images/twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="/static/images/instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 COL-BI. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

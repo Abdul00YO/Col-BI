@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Find</title>
+</head>
+<body>
+    <div id="main">
+        <!-- Navigation Bar -->
+        <div id="nav">
+            <div id="logo"></div>
+            <div id="text">COL-BI</div>
+            <div id="home">
+                <ul>
+                    <li> <a href="{{url_for('index')}}">Home</a> </li>
+                    <li> <a href="{{url_for('find')}}">Find</a></li>
+                    <li> <a href="{{url_for('search')}}">Search</a></li>
+                    <li> <a href="{{url_for('about')}}">About</a></li>
+                    <button id="logout"> <a href="{{url_for('login')}}">Logout</a></button>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div id="ftext1">
+            <h2>Tell Us More About Yourself</h2>
+            <p>Provide some details so we can find the perfect teammate for you:</p>
+        </div>
+
+        <!-- Form Section -->
+        <div id="form">
+            <form action="/find" method="POST">
+                <!-- Name Field -->
+                <label for="name">Name:</label><br>
+                <input type="text" name="name" id="name" placeholder="Enter your full name" required><br><br>
+
+                <!-- Email Field -->
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" id="email" placeholder="Enter your email address" required><br><br>
+
+                <!-- Age Field -->
+                <label for="age">Age:</label><br>
+                <input type="number" name="age" id="age" placeholder="Enter your age" required><br><br>
+
+                <!-- Gender Field -->
+                <label for="gender">Gender:</label><br>
+                <select name="gender" id="gender" required>
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select><br><br>
+
+                <!-- Field of Work -->
+                <label for="field">Field of Work:</label><br>
+                <input type="text" name="field" id="field" placeholder="Your field of work (e.g., Software Development)" required><br><br>
+
+                <!-- Current Project -->
+                <label id="current_proj_lab">Current Project or Work:</label><br>
+                <textarea name="current_proj" id="current_proj" rows="4" placeholder="Briefly describe your current project" required></textarea><br><br>
+
+                <!-- Teammate Requirements -->
+                <label id="teammate_specs_lab">Teammate Requirements:</label><br>
+                <textarea name="teammate_specs" id="teammate_specs" rows="4" placeholder="What kind of teammate are you looking for?" required></textarea><br><br>
+
+                <!-- Submit Button -->
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>COL-BI</h3>
+                <p>Connecting people to build better projects, together. COL-BI makes collaboration easy and efficient for everyone.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('find') }}">Find</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="#"><img src="/static/images/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="/static/images/twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="/static/images/instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 COL-BI. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
